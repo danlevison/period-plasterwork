@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+      font-family: 'Raleway Variable', sans-serif !important;
+    }
+
+    body {
+      @apply bg-primaryBg 
+    }
+}

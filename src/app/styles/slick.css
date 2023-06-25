@@ -1,0 +1,21 @@
+.custom-prev-arrow {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    z-index: 100;
+}
+
+.custom-next-arrow {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    z-index: 100;
+}
+
+.gallery-slider {
+    cursor: grab;
+}
+
+.gallery-loading {
+    cursor: default;
+}
