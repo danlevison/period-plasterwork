@@ -94,13 +94,17 @@ const GallerySlider = () => {
       ) : (
         <Slider {...settings} className="gallery-slider">
           {galleryImages.map((photo, idx) => (
-            <div className="outline-none" key={idx}>
+            <div className="relative h-[350px] md:h-[400px] lg:h-[500px] outline-none" key={idx}>
               <Image
                 src={`/assets/gallery/${photo.src}`}
                 alt={photo.alt}
-                width={500}
-                height={500}
-                className="px-2 w-full h-[350px] md:h-[400px] lg:h-[500px] object-cover"
+                fill
+                sizes="100vw"
+			          quality={100}
+                style={{
+                  objectFit: "cover",
+                }}
+                className="px-2 w-full"
               />
             </div>
           ))}
