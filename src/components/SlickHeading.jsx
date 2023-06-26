@@ -26,7 +26,7 @@ const SlickHeading = () => {
           <Slider {...settings} className="max-w-[100%]">
             <div>
               <motion.h1
-                className="mx-10 text-secondaryText text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-thin tracking-[0.2em] uppercase text-center"
+                className="mx-10 text-secondaryText text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-light md:font-thin tracking-[0.2em] uppercase text-center"
                 initial={{ opacity: 0}}
                 animate={{ opacity: 1}}
                 transition={{ duration: 1.5, delay: 0.5}}
@@ -36,7 +36,7 @@ const SlickHeading = () => {
             </div>
             
             <div>
-              <h1 className="mx-10 text-secondaryText text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-thin tracking-[0.2em] uppercase text-center">Decorative Designs</h1>
+              <h1 className="mx-10 text-secondaryText text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-light md:font-thin tracking-[0.2em] uppercase text-center">Decorative Designs</h1>
             </div>
           </Slider>
 

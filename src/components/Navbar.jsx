@@ -4,57 +4,69 @@ import React, {useState, useEffect} from 'react'
 import { usePathname } from 'next/navigation'
 import { motion } from "framer-motion"
 import Logo from "./Logo"
+import { BiMenuAltLeft } from "react-icons/bi"
+import { AiOutlineClose } from "react-icons/ai"
 
 const Navbar = () => {
     const [nav, setNav] = useState(false)
-
-    const changeBackground = () => {
-        if(window.scrollY >= 20) {
-            setNav(true)
-        } else {
-            setNav(false)
-        }
-    }
+    const [navBg, setNavBg] = useState("transparent")
+    const pathname = usePathname()
 
     useEffect(() => {
-        changeBackground()
-        window.addEventListener("scroll", changeBackground)
-    }, [])
+        const changeBackground = () => {
+            if(window.scrollY > 0 && pathname === "/") {
+                setNavBg("#3a362d")
+            } else if (window.screenY === 0 && pathname === "/") {
+                setNavBg("transparent")
+            } else if (pathname != "/") {
+                setNavBg("#FAF9F6")
+            }
+        }
 
-    const pathname = usePathname()
+        window.addEventListener("scroll", changeBackground)
+        return () => {
+            window.removeEventListener("scroll", changeBackground);
+          };
+    }, [pathname])
+
+    const handleNav = () => {
+        setNav(!nav)
+    }
+
 
     return (
         <motion.nav 
-            className={pathname === "/" && !nav ? "fixed w-full h-28 z-[100]" : pathname != "/" && nav ? "bg-primaryBg shadow-xl fixed w-full h-28 z-[100]" : "fixed w-full h-28 z-[100]"}
+            style={{backgroundColor: navBg, transition: "background-color 0.4s ease"}}
+            className={pathname === "/" ? "fixed w-full h-28 z-[100]" : "fixed w-full h-28 z-[100] shadow-xl"}
             initial={{ opacity: 0}}
             animate={{ opacity: 1}}
             transition={{ duration: 1 }}
             >
                 <div className="py-4 md:py-10 w-full h-full px-2 2xl:px-16">
-                    <div className="flex flex-col md:flex-row gap-6 md:gap-0 justify-around items-center">
+                    <div className="flex flex-col md:flex-row gap-3 xs:gap-5 md:gap-0 justify-around items-center">
                         {<Logo />}
-                        <ul className="flex gap-4 sm:gap-24 lg:gap-32 uppercase tracking-[0.2em] text-secondaryText text-sm">
-                            <a href={"/"} className={pathname === "/" ? "underline" : "text-sm cursor-pointer text-black"}>Home</a>
+                        <ul className="hidden xs:flex gap-5 sm:gap-24 lg:gap-32 uppercase tracking-[0.2em] text-secondaryText text-sm cursor-pointer">
+                            <a href={"/"} className={pathname === "/" ? "underline" : "text-black"}>Home</a>
                             <a href={"/about"} className={pathname === "/" ? "" : pathname === "/about" ? "text-black underline" : "text-black"}>About</a>
                             <a href={"/gallery"} className={pathname === "/" ? "" : pathname === "/gallery" ? "text-black underline" : "text-black"}>Gallery</a>
                             <a href={"/contact"} className={pathname === "/" ? "" : pathname === "/contact" ? "text-black underline" : "text-black"}>Contact</a>
                         </ul>
-                        {/* <div onClick={handleNav} className="md:hidden cursor-pointer">
-                            <p className="text-white">Menu Open</p>
-                        </div> */}
+                        <div onClick={handleNav} className="xs:hidden cursor-pointer">
+                            <BiMenuAltLeft size={40} className={pathname === "/" ? "text-secondaryText" : "text-primaryText"} />
+                        </div>
                     </div>
                 </div>
 
-                {/* <div className={nav ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black" : ""}>
+                <div className={nav ? "xs:hidden fixed left-0 top-0 w-full h-screen bg-gray-800" : ""}>
                     <div className={
                         nav 
-                            ? "fixed left-0 top-0 w-[100%] text-center h-screen p-7 ease-in duration-500" 
-                            : "fixed left-[-100%] top-0 p-10 ease-in duration-500 h-screen"}>
+                            ? "fixed left-0 top-0 w-[100%] text-center h-screen p-7 ease-in duration-500 bg-gray-800" 
+                            : "fixed left-[-150%] top-0 p-10 ease-in duration-500 h-screen bg-gray-800"}>
                     <div>
                         <div className="flex justify-between items-center w-full">
-                            <p>Logo</p>
+                            {<Logo />}
                             <div onClick={handleNav} className="cursor-pointer hover:scale-110 ease-in duration-300">
-                            <p className="text-white">Menu Close</p>
+                            <AiOutlineClose size={30} className="text-secondaryText"/>
                             </div>
                         </div>
             
@@ -63,15 +75,15 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="py-4">
-                        <ul className="flex flex-col gap-24 uppercase text-secondaryText">
-                            <a href={"/"} className="text-sm cursor-pointer">Home</a>
-                            <a href={"/about"} className="text-sm cursor-pointer">About</a>
-                            <a href={"#home"} className="text-sm cursor-pointer">Galley</a>
-                            <a href={"#home"} className="text-sm cursor-pointer">Contact</a>
+                        <ul className="flex flex-col gap-24 uppercase text-secondaryText text-sm cursor-pointer">
+                            <a href={"/"} className={pathname === "/" ? "underline" : ""}>Home</a>
+                            <a href={"/about"} className={pathname === "/about" ? "underline" : ""}>About</a>
+                            <a href={"/gallery"} className={pathname === "/gallery" ? "underline" : ""}>Gallery</a>
+                            <a href={"/contact"} className={pathname === "/contact" ? "underline" : ""}>Contact</a>
                         </ul>
                     </div>   
                     </div>
-                </div> */}
+                </div>
         </motion.nav>
     )
 }
