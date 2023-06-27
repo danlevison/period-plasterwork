@@ -1,16 +1,18 @@
 import React from "react"
+import Link from "next/link"
 import { motion } from "framer-motion"
 
 const Logo = () => {
   return (
-    <a href="/">
+
+    <Link href="/">
        <motion.img
-        className="w-[130px] sm:mr-8" 
+        className="w-[140px] sm:mr-8 mt-2 md:mt-0" 
         src="/assets/period-plasterwork-logo.png"
         initial={{ opacity: 0}}
         animate={{ opacity: 1}}
       />
-    </a>
+    </Link>
   )
 }
 

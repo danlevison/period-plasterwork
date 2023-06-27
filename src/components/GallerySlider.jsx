@@ -8,7 +8,6 @@ import "slick-carousel/slick/slick-theme.css";
 import "../app/styles/slick.css";
 import { Skeleton } from "./ui/skeleton";
 import { GrPrevious, GrNext } from "react-icons/gr";
-import GalleryLightbox from "./GalleryLightbox";
 import galleryImages from "../app/gallery-imgs";
 
 const GallerySlider = () => {
@@ -110,8 +109,6 @@ const GallerySlider = () => {
           ))}
         </Slider>
       )}
-  
-      <GalleryLightbox />
     </div>
   );
 }
