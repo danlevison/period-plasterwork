@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react";
 import FsLightbox from "fslightbox-react";
 import { MdFullscreen } from "react-icons/md";
@@ -8,7 +10,7 @@ function Lightbox({ activeSlide }) {
 
 	return (
 		<>
-			<button className="absolute top-[9rem] right-6 lg:top-[10.7rem] lg:right-10 hover:scale-110 duration-300" onClick={() => setToggler(!toggler)}>
+			<button className="absolute top-[12.3rem] right-6 md:top-[13rem] lg:top-[13.8rem] lg:right-10 hover:scale-110 duration-300" onClick={() => setToggler(!toggler)}>
 				<MdFullscreen size={40} className="text-primaryText" />
 			</button>
 			<FsLightbox

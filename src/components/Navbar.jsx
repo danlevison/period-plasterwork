@@ -11,11 +11,11 @@ const Navbar = () => {
     const [nav, setNav] = useState(false)
     const [navBg, setNavBg] = useState("transparent")
     const pathname = usePathname()
-
+    
     useEffect(() => {
         const changeBackground = () => {
             if(window.scrollY > 0 && pathname === "/") {
-                setNavBg("#3a362d")
+                setNavBg("#242424")
             } else if (window.screenY === 0 && pathname === "/") {
                 setNavBg("transparent")
             } else if (pathname != "/") {
@@ -37,13 +37,13 @@ const Navbar = () => {
     return (
         <motion.nav 
             style={{backgroundColor: navBg, transition: "background-color 0.4s ease"}}
-            className={pathname === "/" ? "fixed w-full h-28 z-[100]" : "fixed w-full h-28 z-[100] shadow-xl"}
+            className={pathname === "/" ? "fixed w-full h-[5.5rem] z-[100]" : "fixed w-full h-[5.5rem] z-[100] shadow-xl"}
             initial={{ opacity: 0}}
             animate={{ opacity: 1}}
             transition={{ duration: 1 }}
             >
-                <div className="py-4 md:py-10 w-full h-full px-2 2xl:px-16">
-                    <div className="flex flex-col md:flex-row gap-3 xs:gap-5 md:gap-0 justify-around items-center">
+                <div className="md:py-7 w-full h-full px-2 2xl:px-16">
+                    <div className="flex flex-col md:flex-row gap-1 xs:gap-3 md:gap-0 justify-around items-center">
                         {<Logo />}
                         <ul className="hidden xs:flex gap-5 sm:gap-24 lg:gap-32 uppercase tracking-[0.2em] text-secondaryText text-sm cursor-pointer">
                             <a href={"/"} className={pathname === "/" ? "underline" : "text-black"}>Home</a>
