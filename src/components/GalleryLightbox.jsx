@@ -1,9 +1,7 @@
-"use client"
-
 import React, { useState } from "react";
 import FsLightbox from "fslightbox-react";
 import { MdFullscreen } from "react-icons/md";
-import galleryImages from "../app/gallery-imgs"
+import galleryImages from "../app/gallery-imgs";
 
 function Lightbox({ activeSlide }) {
 	const [toggler, setToggler] = useState(false);
