@@ -68,11 +68,11 @@ const Navbar = () => {
                     )}
                 </div>
 
-                <div className={nav ? "xs:hidden fixed top-0 w-full h-screen z-[100]" : ""}>
+                <div className={nav ? "xs:hidden fixed top-0 w-full h-screen z-[100]" : "xs:hidden"}>
                     <div className={
                         nav 
                             ? "fixed top-0 w-full text-center p-10 h-screen ease-in duration-500 bg-[#242424] z-[100]" 
-                            : "fixed top-[-100%] p-10 w-full text-center ease-in duration-300 h-screen bg-[#242424]/80"}>
+                            : "fixed top-[-100%] p-10 w-full text-center ease-in duration-300 h-screen"}>
                     <div>
                         <div className="flex justify-between items-center w-full">
                             {<Logo handleNav={handleNav} />}
