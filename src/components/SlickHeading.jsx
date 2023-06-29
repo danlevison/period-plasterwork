@@ -22,7 +22,7 @@ const SlickHeading = () => {
       };
 
       return (
-        <div className="w-full flex flex-col">
+        <div className="min-h-screen w-full flex flex-col justify-center items-center pt-20">
           <Slider {...settings} className="max-w-[100%]">
             <div>
               <motion.h1
