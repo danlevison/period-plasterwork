@@ -1,16 +1,19 @@
 import React from "react"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import Image from "next/image"
 
-const Logo = () => {
+
+const Logo = ({handleNav}) => {
   return (
 
-    <Link href="/">
-       <motion.img
-        className="w-[140px] sm:mr-8 mt-2 md:mt-0" 
+    <Link href="/" onClick={handleNav}>
+       <Image
+        className="w-[140px] mt-2 md:mt-0" 
         src="/assets/period-plasterwork-logo.png"
-        initial={{ opacity: 0}}
-        animate={{ opacity: 1}}
+        alt="Period Plasterwork Logo"
+        width={140}
+        height={140}
+        quality={100}
       />
     </Link>
   )
