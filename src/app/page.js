@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main className="w-full h-full">
         <LandingPage />
       </main>
     </>
