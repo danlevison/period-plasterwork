@@ -14,6 +14,7 @@ const Logo = ({handleNav}) => {
         width={140}
         height={140}
         quality={100}
+        priority={true}
       />
     </Link>
   )

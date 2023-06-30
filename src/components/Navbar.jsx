@@ -19,7 +19,7 @@ const Navbar = () => {
         const changeBackground = () => {
             if(window.scrollY > 0 && pathname === "/") {
                 setNavBg("#242424")
-            } else if (window.screenY === 0 && pathname === "/") {
+            } else if (window.scrollY === 0 && pathname === "/") {
                 setNavBg("transparent")
             } else if (pathname != "/") {
                 setNavBg("#FAF9F6")
@@ -61,9 +61,9 @@ const Navbar = () => {
                                     <Link href={"/contact"} className={pathname === "/" ? "" : pathname === "/contact" ? "text-black underline" : "text-black"}>Contact</Link>
                                 </li>
                             </ul>
-                            <div onClick={handleNav} className="xs:hidden cursor-pointer">
+                            <button onClick={handleNav} aria-label="Open menu" className="xs:hidden cursor-pointer">
                                 <BiMenuAltLeft size={40} className={pathname === "/" ? "text-secondaryText" : "text-primaryText"} />
-                            </div>
+                            </button>
                         </div>
                     )}
                 </div>
@@ -76,9 +76,9 @@ const Navbar = () => {
                     <div>
                         <div className="flex justify-between items-center w-full">
                             {<Logo handleNav={handleNav} />}
-                            <div onClick={handleNav} className="cursor-pointer hover:scale-110 ease-in duration-300">
-                            <AiOutlineClose size={30} className="text-secondaryText"/>
-                            </div>
+                            <button onClick={handleNav} aria-label="Close menu" className="cursor-pointer hover:scale-110 ease-in duration-300">
+                                <AiOutlineClose size={30} className="text-secondaryText"/>
+                            </button>
                         </div>
             
                         <div className="border-b border-gray-300 my-4">
