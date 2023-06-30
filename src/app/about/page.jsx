@@ -8,10 +8,10 @@ import AboutImage from "../../../public/assets/gallery/gallery-img-3.jpeg"
 
 const About = () => {
   return (
-    <main className="md:min-h-screen w-full flex flex-col items-center justify-center px-10 pb-16">
+    <main className="min-h-screen w-full flex flex-col items-center justify-center px-10 pb-16">
 		<div className="max-w-[1440px] md:grid md:grid-cols-2 gap-28 justify-center items-center pt-32">
 			<motion.div 
-				className="flex flex-col py-8"
+				className="flex flex-col py-4"
 				initial={{ opacity: 0}}
 				animate={{ opacity: 1}}
 				transition={{ duration: 1, delay: 0.2}}
@@ -31,11 +31,11 @@ const About = () => {
 					auctor velit rutrum. Donec finibus posuere efficitur. Sed malesuada
 					porta nisl vel rhoncus. Integer blandit augue id mauris.
 				</p>
-				<Link href={"/gallery"} className="text-sm lg:text-lg underline py-8">See our work</Link>
+				<Link href={"/gallery"} className="w-28 lg:text-lg underline mt-8">See our work</Link>
 			</motion.div>
 
 			<motion.div 
-				className="relative h-[450px]"
+				className="relative h-[300px] md:h-[450px]"
 				initial={{ opacity: 0}}
 				animate={{ opacity: 1}}
 				transition={{ duration: 1, delay: 0.2}}

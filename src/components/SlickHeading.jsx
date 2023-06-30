@@ -22,7 +22,7 @@ const SlickHeading = () => {
       };
 
       return (
-        <div className="min-h-screen w-full flex flex-col justify-center items-center">
+        <div className="w-full flex flex-col justify-center items-center min-h-screen">
           <Slider {...settings} className="max-w-[100%]">
             <div>
               <motion.h1
@@ -42,7 +42,7 @@ const SlickHeading = () => {
 
           <motion.a
             href={"/about"}
-            aria-label="Learn more about us"
+            aria-label="Learn more about Period Plasterwork"
             className="relative text-sm md:text-base lg:text-lg text-center p-2 w-24 md:w-32 mt-10 mx-auto text-primaryText bg-primaryBg rounded-md hover:scale-105 ease-in duration-300"
             initial={{ opacity: 0}}
             animate={{ opacity: 1}}

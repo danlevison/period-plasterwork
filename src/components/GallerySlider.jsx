@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import NextImage from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -32,13 +32,13 @@ const GallerySlider = () => {
   }, []);
 
   const CustomPrevArrow = ({ onClick }) => (
-    <button onClick={onClick} className="custom-prev-arrow">
+    <button onClick={onClick} className="custom-prev-arrow" aria-label="Previous image">
       <GrPrevious size={50} className="opacity-30" />
     </button>
   );
 
   const CustomNextArrow = ({ onClick }) => (
-    <button onClick={onClick} className="custom-next-arrow">
+    <button onClick={onClick} className="custom-next-arrow" aria-label="Next image">
       <GrNext size={50} className="opacity-30" />
     </button>
   );
@@ -91,13 +91,14 @@ const GallerySlider = () => {
       ) : (
         <Slider {...settings} className="gallery-slider">
           {galleryImages.map((photo, idx) => (
-            <div className="relative h-[350px] md:h-[400px] lg:h-[500px] outline-none" key={idx}>
-              <Image
+            <div className="relative h-[350px] md:h-[400px] lg:h-[450px] outline-none" key={idx}>
+              <NextImage
                 src={`/assets/gallery/${photo.src}`}
                 alt={photo.alt}
                 fill
-                sizes="100vw"
-			          quality={100}
+                sizes="(min-width: 1024px) 33.33vw, (min-width: 768px) 50vw, 100vw"
+                quality={100}
+                priority={idx < 3}
                 style={{
                   objectFit: "cover",
                 }}
