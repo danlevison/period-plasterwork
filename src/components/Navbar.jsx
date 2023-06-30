@@ -10,31 +10,38 @@ import { BiMenuAltLeft } from "react-icons/bi"
 import { AiOutlineClose } from "react-icons/ai"
 
 const Navbar = () => {
-    const [nav, setNav] = useState(false)
-    const [navBg, setNavBg] = useState("transparent")
-    const pathname = usePathname()
-    const shouldAnimate = pathname === "/"
-    
+    const [nav, setNav] = useState(false);
+    const [navBg, setNavBg] = useState("transparent");
+    const [scrollY, setScrollY] = useState(0);
+    const pathname = usePathname();
+    const shouldAnimate = pathname === "/";
+  
     useEffect(() => {
-        const changeBackground = () => {
-            if(window.scrollY > 0 && pathname === "/") {
-                setNavBg("#242424")
-            } else if (window.scrollY === 0 && pathname === "/") {
-                setNavBg("transparent")
-            } else if (pathname != "/") {
-                setNavBg("#FAF9F6")
-            }
+      const handleScroll = () => {
+        setScrollY(window.scrollY);
+      };
+  
+      const handleNavigation = () => {
+        if (scrollY > 0 && pathname === "/") {
+          setNavBg("#242424");
+        } else if (scrollY === 0 && pathname === "/") {
+          setNavBg("transparent");
+        } else if (pathname !== "/") {
+          setNavBg("#FAF9F6");
         }
-
-        window.addEventListener("scroll", changeBackground)
-        return () => {
-            window.removeEventListener("scroll", changeBackground);
-          };
-    }, [pathname])
-
+      };
+  
+      window.addEventListener("scroll", handleScroll);
+      handleNavigation(); // Handle navigation immediately when component mounts
+  
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, [pathname, scrollY]);
+  
     const handleNav = () => {
-        setNav(!nav)
-    }
+      setNav(!nav);
+    };
 
     return (
         <nav 
@@ -47,7 +54,7 @@ const Navbar = () => {
                         : (
                         <div className="flex flex-col md:flex-row gap-1 xs:gap-3 md:gap-0 justify-around items-center">
                             {<Logo />}
-                            <ul className="hidden xs:flex gap-5 sm:gap-24 lg:gap-32 uppercase tracking-[0.2em] text-secondaryText text-sm cursor-pointer">
+                            <ul className="hidden xs:flex gap-5 sm:gap-24 lg:gap-32 uppercase tracking-[0.2em] text-secondaryText text-sm">
                                 <li>
                                     <Link href={"/"} className={pathname === "/" ? "underline" : "text-black"}>Home</Link>
                                 </li>
@@ -87,7 +94,7 @@ const Navbar = () => {
                     </div>
                     <div className="py-12">
                     {nav && (
-                        <ul onClick={handleNav} className="flex flex-col gap-24 uppercase text-secondaryText text-sm cursor-pointer">
+                        <ul onClick={handleNav} className="flex flex-col gap-24 uppercase text-secondaryText text-sm">
                             <motion.li
                                 initial={{ opacity: 0}}
                                 animate={{ opacity: 1}}
