@@ -16,15 +16,23 @@ const NavLinks = ({handleNav}) => {
         transition={{ duration: 1 }}
     >
         {<Logo />}
-        <ul className="hidden xs:flex gap-5 sm:gap-24 lg:gap-32 uppercase tracking-[0.2em] text-secondaryText text-sm cursor-pointer">
-            <Link href={"/"} className={pathname === "/" ? "underline" : "text-black"}>Home</Link>
-            <Link href={"/about"} className={pathname === "/" ? "" : pathname === "/about" ? "text-black underline" : "text-black"}>About</Link>
-            <Link href={"/gallery"} className={pathname === "/" ? "" : pathname === "/gallery" ? "text-black underline" : "text-black"}>Gallery</Link>
-            <Link href={"/contact"} className={pathname === "/" ? "" : pathname === "/contact" ? "text-black underline" : "text-black"}>Contact</Link>
+        <ul className="hidden xs:flex gap-5 sm:gap-24 lg:gap-32 uppercase tracking-[0.2em] text-secondaryText text-sm">
+            <li>
+                <Link href={"/"} className={pathname === "/" ? "underline" : "text-black"}>Home</Link>
+            </li>
+            <li>
+                <Link href={"/about"} className={pathname === "/" ? "" : pathname === "/about" ? "text-black underline" : "text-black"}>About</Link>
+            </li>
+            <li>
+                <Link href={"/gallery"} className={pathname === "/" ? "" : pathname === "/gallery" ? "text-black underline" : "text-black"}>Gallery</Link>
+            </li>
+            <li>
+                <Link href={"/contact"} className={pathname === "/" ? "" : pathname === "/contact" ? "text-black underline" : "text-black"}>Contact</Link>
+            </li>
         </ul>
-        <div onClick={handleNav} className="xs:hidden cursor-pointer">
+        <button onClick={handleNav} aria-label="Open menu" className="xs:hidden cursor-pointer">
             <BiMenuAltLeft size={40} className={pathname === "/" ? "text-secondaryText" : "text-primaryText"} />
-        </div>
+        </button>
     </motion.div>
   )
 }
