@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "../app/styles/slick.css";
-import { Skeleton } from "./ui/skeleton";
+import { Skeleton } from "../components/ui/skeleton";
 import { GrPrevious, GrNext } from "react-icons/gr";
 import galleryImages from "../app/gallery-imgs";
 

@@ -9,7 +9,7 @@ import MotionNavLinks from "./MotionNavLinks"
 import { BiMenuAltLeft } from "react-icons/bi"
 import { AiOutlineClose } from "react-icons/ai"
 
-const Navbar = () => {
+const TestNav = () => {
     const [nav, setNav] = useState(false);
     const [navBg, setNavBg] = useState("transparent");
     const [scrollY, setScrollY] = useState(0);
@@ -49,17 +49,32 @@ const Navbar = () => {
             className={pathname === "/" ? "fixed w-full h-[5.5rem] z-[100]" : "fixed w-full h-[5.5rem] z-[100] shadow-xl"}>
                 <div className="md:py-7 w-full h-full px-2 2xl:px-16">
                     {shouldAnimate ? (
-                        <MotionNavLinks handleNav={handleNav} />
+                        <MotionNavLinks navBg={navBg} handleNav={handleNav} />
                         ) 
                         : (
                         <div className="flex flex-col md:flex-row gap-1 xs:gap-3 md:gap-0 justify-around items-center">
                             {<Logo />}
-                            <ul className="hidden xs:flex gap-5 sm:gap-24 lg:gap-32 uppercase tracking-[0.2em] text-secondaryText text-sm">
+                            <ul className="hidden xs:flex gap-5 sm:gap-24 lg:gap-32 uppercase tracking-[0.2em] text-black text-sm">
                                 <li>
                                     <Link href={"/"} className={pathname === "/" ? "underline" : "text-black"}>Home</Link>
                                 </li>
-                                <li>
-                                    <Link href={"/about"} className={pathname === "/" ? "" : pathname === "/about" ? "text-black underline" : "text-black"}>About</Link>
+                                <li className="relative">
+                                    <div className="group dropdown">
+                                        <Link href={"/about"} className={pathname === "/" ? "" : pathname === "/about" ? "text-black underline" : "text-black"}>About</Link>
+                                        <div className="dropdown-container pointer-events-none translate-y-[-8px] transition 150ms ease-in-out, transform 150ms ease-in-out group-hover:translate-y-0 opacity-0 group-hover:opacity-100 absolute left-[50%] translate-x-[-50%] top-full bg-primaryBg pt-2 md:pt-6 group-hover:pointer-events-auto">
+                                            <ul className="text-center text-primaryText shadow-xl">
+                                                <li className="hover:bg-navBg hover:text-secondaryText">
+                                                    <Link href="/about" className="block py-2">About us</Link>
+                                                </li>
+                                                <li className="border-y border-black hover:bg-navBg hover:text-secondaryText">
+                                                    <Link href="/about#services" className="block py-2 px-14">Services</Link>
+                                                </li>
+                                                <li className="hover:bg-navBg hover:text-secondaryText">
+                                                    <Link href="/about#areas" className="block py-2">Areas we cover</Link>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>
                                     <Link href={"/gallery"} className={pathname === "/" ? "" : pathname === "/gallery" ? "text-black underline" : "text-black"}>Gallery</Link>
@@ -132,4 +147,4 @@ const Navbar = () => {
         </nav>
     )
 }
-export default Navbar
+export default TestNav
