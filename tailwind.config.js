@@ -18,6 +18,7 @@ module.exports = {
 			},
 			colors: {
 				primaryBg: "#FAF9F6",
+        navBg: "#242424",
 				primaryText: "#000",
 				secondaryText: "#FAF9F6",
 			},
