@@ -26,13 +26,13 @@ const NavLinks = ({navBg, handleNav}) => {
                     <div className="dropdown-container pointer-events-none translate-y-[-8px] transition 150ms ease-in-out, transform 150ms ease-in-out group-hover:translate-y-0 opacity-0 group-hover:opacity-100 absolute left-[50%] translate-x-[-50%] top-full bg-transparent pt-[0.63rem] md:pt-6 group-hover:pointer-events-auto">
                         <ul style={{backgroundColor: navBg, transition: "background-color 0.4s ease"}} className="text-center text-secondaryText">
                             <li className="hover:bg-primaryBg hover:text-primaryText">
-                                <Link href="/about" className="block py-2">About us</Link>
+                                <Link href="/about" className="block py-2">About my work</Link>
                             </li>
                             <li className="border-y border-primaryBg hover:bg-primaryBg hover:text-primaryText">
                                 <Link href="/about#services" className="block py-2 px-14">Services</Link>
                             </li>
                             <li className="hover:bg-primaryBg hover:text-primaryText">
-                                <Link href="/about#areas" className="block py-2">Areas we cover</Link>
+                                <Link href="/about#areas" className="block py-2">Areas covered</Link>
                             </li>
                         </ul>
                     </div>

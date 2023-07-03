@@ -1,7 +1,7 @@
 import React from "react"
 import SlickHeading from "./SlickHeading"
 import Image from "next/image"
-import bg from "../../public/assets/hero-img.png"
+import bg from "../../public/assets/hero-img.jpg"
 
 const LandingPage = () => {
   return (
@@ -10,9 +10,10 @@ const LandingPage = () => {
 			alt="Ceiling with decorative plaster ceiling roses and chandeliers hanging."
 			src={bg}
 			placeholder="blur"
-			quality={100}
+			quality={80}
 			fill
 			sizes="100vw"
+			priority
 			style={{
 				objectFit: "cover",
 			}}

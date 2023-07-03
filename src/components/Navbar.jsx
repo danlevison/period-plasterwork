@@ -64,13 +64,13 @@ const TestNav = () => {
                                         <div className="dropdown-container pointer-events-none translate-y-[-8px] transition 150ms ease-in-out, transform 150ms ease-in-out group-hover:translate-y-0 opacity-0 group-hover:opacity-100 absolute left-[50%] translate-x-[-50%] top-full bg-primaryBg pt-2 md:pt-6 group-hover:pointer-events-auto">
                                             <ul className="text-center text-primaryText shadow-xl">
                                                 <li className="hover:bg-navBg hover:text-secondaryText">
-                                                    <Link href="/about" className="block py-2">About us</Link>
+                                                    <Link href="/about" className="block py-2">About my work</Link>
                                                 </li>
                                                 <li className="border-y border-black hover:bg-navBg hover:text-secondaryText">
                                                     <Link href="/about#services" className="block py-2 px-14">Services</Link>
                                                 </li>
                                                 <li className="hover:bg-navBg hover:text-secondaryText">
-                                                    <Link href="/about#areas" className="block py-2">Areas we cover</Link>
+                                                    <Link href="/about#areas" className="block py-2">Areas covered</Link>
                                                 </li>
                                             </ul>
                                         </div>
