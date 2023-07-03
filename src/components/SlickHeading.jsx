@@ -4,8 +4,9 @@ import React from "react"
 import  Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import "../app/styles/slick.css"
-import { motion } from "framer-motion"
+import "../app/styles/slick.css";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 const SlickHeading = () => {
     var settings = {
@@ -40,16 +41,20 @@ const SlickHeading = () => {
             </div>
           </Slider>
 
-          <motion.a
-            href={"/about"}
-            aria-label="Learn more about Period Plasterwork"
-            className="relative text-sm md:text-base lg:text-lg text-center p-2 w-24 md:w-32 mt-10 mx-auto text-primaryText bg-primaryBg rounded-md hover:scale-105 ease-in duration-300"
+          <motion.div
+            className="relative mt-10 hover:scale-105 ease-in duration-300 text-sm md:text-base lg:text-lg text-center w-24 md:w-32 text-primaryText bg-primaryBg rounded-md" 
             initial={{ opacity: 0}}
             animate={{ opacity: 1}}
             transition={{ duration: 1.5, delay: 1}}
           >
-			      Learn more
-		      </motion.a>
+            <Link
+              href={"/about"}
+              aria-label="Learn more about Period Plasterwork"
+              className="block p-2"
+          >
+			        Learn more
+		        </Link>
+          </motion.div>
         </div>
         
       );

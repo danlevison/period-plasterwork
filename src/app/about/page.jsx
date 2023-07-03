@@ -34,7 +34,7 @@ const About = () => {
 						auctor velit rutrum. Donec finibus posuere efficitur. Sed malesuada
 						porta nisl vel rhoncus. Integer blandit augue id mauris.
 					</p>
-					<Link href={"/gallery"} className="w-28 lg:text-lg underline mt-8">See our work</Link>
+					<Link href={"/gallery"} className="w-28 lg:text-lg underline mt-8">See my work</Link>
 				</motion.div>
 
 				<motion.div 

@@ -13,8 +13,8 @@ const Logo = ({handleNav}) => {
         alt="Period Plasterwork Logo"
         width={140}
         height={140}
-        quality={100}
-        priority={true}
+        quality={80}
+        priority
       />
     </Link>
   )
